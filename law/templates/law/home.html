@@ -1,0 +1,191 @@
+{% extends 'law/base.html' %}
+
+{% block title %}Ana Sayfa - Öztaylan Hukuk Bürosu{% endblock %}
+
+{% block content %}
+<section class="hero-section home-hero">
+    <div class="hero-content">
+        <h1>ÖZTAYLAN HUKUK & DANIŞMANLIK</h1>
+        <p>Hukuki haklarınızı korumak ve en iyi çözümleri sunmak için yanınızdayız</p>
+        <a href="{% url 'law:contact' %}" class="cta-button">Randevu Alın</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <i class="fas fa-balance-scale"></i>
+        <h3>Uzman Kadro</h3>
+        <p>Deneyimli avukatlarımızla hizmetinizdeyiz</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-globe"></i>
+        <h3>Geniş Hizmet Ağı</h3>
+        <p>Tüm hukuki alanlarda danışmanlık</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-clock"></i>
+        <h3>7/24 Destek</h3>
+        <p>Her zaman yanınızdayız</p>
+    </div>
+</section>
+
+<section class="services-preview">
+    <h2>Hizmetlerimiz</h2>
+    <div class="services-slider">
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide">
+                    <div class="service-preview-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Ticaret Hukuku</h3>
+                        <ul>
+                            <li><a href="{% url 'law:services' %}#sirket-kuruluslari">Şirket Kuruluşları</a></li>
+                            <li><a href="{% url 'law:services' %}#ticari-sozlesmeler">Ticari Sözleşmeler</a></li>
+                            <li><a href="{% url 'law:services' %}#birlesme-devralmalar">Birleşme ve Devralmalar</a></li>
+                        </ul>
+                        <a href="{% url 'law:services' %}#ticaret-hukuku" class="read-more">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="service-preview-card">
+                        <i class="fas fa-gavel"></i>
+                        <h3>İş Hukuku</h3>
+                        <ul>
+                            <li><a href="{% url 'law:services' %}#is-sozlesmeleri">İş Sözleşmeleri</a></li>
+                            <li><a href="{% url 'law:services' %}#isci-isveren">İşçi-İşveren Uyuşmazlıkları</a></li>
+                            <li><a href="{% url 'law:services' %}#is-kazalari">İş Kazaları</a></li>
+                        </ul>
+                        <a href="{% url 'law:services' %}#is-hukuku" class="read-more">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="service-preview-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Gayrimenkul Hukuku</h3>
+                        <ul>
+                            <li><a href="{% url 'law:services' %}#tapu-islemleri">Tapu İşlemleri</a></li>
+                            <li><a href="{% url 'law:services' %}#kira-hukuku">Kira Hukuku</a></li>
+                            <li><a href="{% url 'law:services' %}#imar-hukuku">İmar Hukuku</a></li>
+                        </ul>
+                        <a href="{% url 'law:services' %}#gayrimenkul-hukuku" class="read-more">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="prev-btn" aria-label="Önceki"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn" aria-label="Sonraki"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider-dots"></div>
+        </div>
+    </div>
+</section>
+
+<section class="about-preview">
+    <div class="about-preview-content">
+        <h2>Hakkımızda</h2>
+        <div class="about-cards">
+            <div class="about-preview-card">
+                <h3>Vizyonumuz</h3>
+                <p>Hukuki alanda yenilikçi ve güvenilir çözümler üreterek, müvekkillerimizin haklarını en iyi şekilde korumak.</p>
+            </div>
+            <div class="about-preview-card">
+                <h3>Misyonumuz</h3>
+                <p>Müvekkillerimize en yüksek kalitede hukuki hizmet sunarak, adalete ulaşmalarında güvenilir bir partner olmak.</p>
+            </div>
+        </div>
+        <a href="{% url 'law:about' %}" class="learn-more-btn">Daha Fazla Bilgi</a>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dotsContainer = document.querySelector('.slider-dots');
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    // Nokta navigasyonunu oluştur
+    slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('slider-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateSlider();
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    function updateSlider() {
+        // Slider'ı güncelle
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Aktif noktayı güncelle
+        document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+
+        // Otomatik geçişi sıfırla
+        resetAutoSlide();
+    }
+
+    function nextSlide() {
+        currentIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
+        updateSlider();
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Event Listeners
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Touch/Swipe desteği
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    track.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
+
+    // Otomatik geçişi başlat
+    resetAutoSlide();
+
+    // Mouse hover durumunda otomatik geçişi durdur
+    track.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    track.addEventListener('mouseleave', resetAutoSlide);
+});
+</script>
+{% endblock %} 

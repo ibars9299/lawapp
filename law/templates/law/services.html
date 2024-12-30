@@ -1,0 +1,166 @@
+{% extends 'law/base.html' %}
+
+{% block title %}Hizmetlerimiz - Öztaylan Hukuk Bürosu{% endblock %}
+
+{% block content %}
+<section class="hero-section services-hero">
+    <div class="hero-content">
+        <h1>Hizmetlerimiz</h1>
+        <p>Uzman kadromuzla size özel hukuki çözümler sunuyoruz</p>
+    </div>
+</section>
+
+<section class="services-content">
+    <div class="container">
+        <div class="services-nav">
+            <ul>
+                <li><a href="#ticaret-hukuku">Ticaret Hukuku</a></li>
+                <li><a href="#is-hukuku">İş Hukuku</a></li>
+                <li><a href="#gayrimenkul-hukuku">Gayrimenkul Hukuku</a></li>
+                <li><a href="#aile-hukuku">Aile Hukuku</a></li>
+            </ul>
+        </div>
+
+        <div class="services-grid">
+            <div id="ticaret-hukuku" class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h2>Ticaret Hukuku</h2>
+                <p>Şirketler hukuku, sözleşmeler ve ticari uyuşmazlıklar konusunda danışmanlık</p>
+                <div class="service-details">
+                    <div id="sirket-kuruluslari" class="detail-section">
+                        <h3>Şirket Kuruluşları</h3>
+                        <ul>
+                            <li>Limited ve Anonim Şirket Kuruluşları</li>
+                            <li>Şirket Ana Sözleşme Hazırlanması</li>
+                            <li>Yabancı Ortaklı Şirket Kuruluşları</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Şirket Kuruluşu">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="ticari-sozlesmeler" class="detail-section">
+                        <h3>Ticari Sözleşmeler</h3>
+                        <ul>
+                            <li>Bayilik ve Distribütörlük Sözleşmeleri</li>
+                            <li>Franchise Sözleşmeleri</li>
+                            <li>Tedarik Sözleşmeleri</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Ticari Sözleşmeler">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="birlesme-devralmalar" class="detail-section">
+                        <h3>Birleşme ve Devralmalar</h3>
+                        <ul>
+                            <li>Şirket Birleşmeleri</li>
+                            <li>Şirket Bölünmeleri</li>
+                            <li>Hisse Devirleri</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Birleşme ve Devralmalar">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="is-hukuku" class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h2>İş Hukuku</h2>
+                <p>İşçi-işveren ilişkileri ve iş davalarında uzman danışmanlık</p>
+                <div class="service-details">
+                    <div id="is-sozlesmeler" class="detail-section">
+                        <h3>İş Sözleşmeleri</h3>
+                        <ul>
+                            <li>İş Sözleşmeleri</li>
+                            <li>İşçi-İşveren Uyuşmazlıkları</li>
+                            <li>Toplu İş Hukuku</li>
+                            <li>İş Kazaları</li>
+                        </ul>
+                    </div>
+                    <div id="is-kazalar" class="detail-section">
+                        <h3>İş Kazaları</h3>
+                        <ul>
+                            <li>İş Kazaları</li>
+                            <li><a href="{% url 'law:contact' %}?subject=İş Kazaları">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gayrimenkul-hukuku" class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h2>Gayrimenkul Hukuku</h2>
+                <p>Taşınmaz hukuku ve imar hukuku alanında kapsamlı hizmetler</p>
+                <div class="service-details">
+                    <div id="tapu-islemleri" class="detail-section">
+                        <h3>Tapu İşlemleri</h3>
+                        <ul>
+                            <li>Tapu İşlemleri</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Tapu İşlemleri">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="kira-hukuku" class="detail-section">
+                        <h3>Kira Hukuku</h3>
+                        <ul>
+                            <li>Kira Hukuku</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Kira Hukuku">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="imar-hukuku" class="detail-section">
+                        <h3>İmar Hukuku</h3>
+                        <ul>
+                            <li>İmar Hukuku</li>
+                            <li><a href="{% url 'law:contact' %}?subject=İmar Hukuku">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="kat-mulkiyeti" class="detail-section">
+                        <h3>Kat Mülkiyeti</h3>
+                        <ul>
+                            <li>Kat Mülkiyeti</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Kat Mülkiyeti">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="aile-hukuku" class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2>Aile Hukuku</h2>
+                <p>Aile hukuku alanında hassas ve profesyonel danışmanlık</p>
+                <div class="service-details">
+                    <div id="bosanma-davalari" class="detail-section">
+                        <h3>Boşanma Davaları</h3>
+                        <ul>
+                            <li>Boşanma Davaları</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Boşanma Davaları">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="nafaka-hukuku" class="detail-section">
+                        <h3>Nafaka Hukuku</h3>
+                        <ul>
+                            <li>Nafaka Hukuku</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Nafaka Hukuku">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="velayet-davalari" class="detail-section">
+                        <h3>Velayet Davaları</h3>
+                        <ul>
+                            <li>Velayet Davaları</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Velayet Davaları">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                    <div id="mal-paylasimi" class="detail-section">
+                        <h3>Mal Paylaşımı</h3>
+                        <ul>
+                            <li>Mal Paylaşımı</li>
+                            <li><a href="{% url 'law:contact' %}?subject=Mal Paylaşımı">Danışmanlık Talebi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

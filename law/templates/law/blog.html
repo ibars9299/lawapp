@@ -1,0 +1,163 @@
+{% extends 'law/base.html' %}
+{% load static %}
+
+{% block title %}Hukuk Blogu - Öztaylan Hukuk Bürosu{% endblock %}
+
+{% block content %}
+<div class="blog-hero">
+    <h1>Hukuk Blogu</h1>
+    <p>Güncel hukuki gelişmeler ve bilgilendirici makaleler</p>
+</div>
+
+<div class="blog-categories">
+    <div class="category-container">
+        <a href="#" class="category-item active">
+            <i class="fas fa-th-large"></i>
+            <span>Tüm Yazılar</span>
+        </a>
+        <a href="#" class="category-item">
+            <i class="fas fa-briefcase"></i>
+            <span>İş Hukuku</span>
+        </a>
+        <a href="#" class="category-item">
+            <i class="fas fa-home"></i>
+            <span>Gayrimenkul</span>
+        </a>
+        <a href="#" class="category-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Ticaret</span>
+        </a>
+        <a href="#" class="category-item">
+            <i class="fas fa-users"></i>
+            <span>Aile Hukuku</span>
+        </a>
+        <a href="#" class="category-item">
+            <i class="fas fa-gavel"></i>
+            <span>Mevzuat</span>
+        </a>
+    </div>
+</div>
+
+<div class="blog-content">
+    <div class="blog-grid">
+        <!-- Blog kartları buraya gelecek -->
+    </div>
+</div>
+
+<style>
+    .blog-hero {
+        background: var(--primary-color);
+        color: white;
+        padding: 4rem 2rem;
+        text-align: center;
+    }
+
+    .blog-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .blog-hero p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    .blog-categories {
+        background: var(--primary-color);
+        position: sticky;
+        top: 80px;
+        z-index: 100;
+        padding: 1rem 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .category-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0 2rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-item {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .category-item i {
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .category-item:hover {
+        color: white;
+        background: rgba(255,255,255,0.1);
+        transform: translateY(-2px);
+    }
+
+    .category-item:hover i {
+        transform: translateY(-1px);
+    }
+
+    .category-item.active {
+        background: var(--accent-color);
+        color: white;
+    }
+
+    .blog-content {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .blog-categories {
+            top: 60px;
+            padding: 0.5rem 0;
+        }
+
+        .category-container {
+            justify-content: flex-start;
+            padding: 0 1rem;
+            gap: 0.5rem;
+        }
+
+        .category-item {
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .blog-content {
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .blog-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+</style>
+{% endblock %} 

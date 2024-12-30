@@ -1,0 +1,85 @@
+{% extends 'law/base.html' %}
+
+{% block title %}İletişim - Öztaylan Hukuk Bürosu{% endblock %}
+
+{% block content %}
+<section class="hero-section contact-hero">
+    <div class="hero-content">
+        <h1>İletişim</h1>
+        <p>Hukuki danışmanlık için bizimle iletişime geçin</p>
+    </div>
+</section>
+
+<section class="contact-content">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Adres</h3>
+                    <p>Deniz Mah. Konyaaltı Cad.</p>
+                    <p> Evren Pasajı Bina No: 3</p>
+                    <p>Kat: 2 No : 203 Muratpaşa/ANTALYA</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telefon</h3>
+                    <p>+90 541 959 30 03</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>E-posta</h3>
+                    <p>info@oztaylanhukuk.com</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h2>Bize Ulaşın</h2>
+                <form class="contact-form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Ad Soyad</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Konu</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Gönder</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d51058.92528710258!2d30.697649665071506!3d36.88597422836025!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c3901a576ff7cd%3A0x6f08e517c2568843!2sYemen%20Kahvesi!5e0!3m2!1str!2str!4v1735558869236!5m2!1str!2str" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+{% endblock %} 

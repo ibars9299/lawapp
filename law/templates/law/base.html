@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hukuk Bürosu{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'law/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="{% url 'law:home' %}">
+                    <h1>ÖZTAYLAN | HUKUK & DANIŞMANLIK</h1>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'law:home' %}">Ana Sayfa</a></li>
+                <li><a href="{% url 'law:about' %}">Hakkımızda</a></li>
+                <li><a href="{% url 'law:services' %}">Hizmetlerimiz</a></li>
+                <li><a href="{% url 'law:success_stories' %}">Başarı Hikayeleri</a></li>
+                <li><a href="{% url 'law:faq' %}">SSS</a></li>
+                <li><a href="{% url 'law:blog' %}">Blog</a></li>
+                <li><a href="{% url 'law:contact' %}">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://instagram.com/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>ÖZTAYLAN | HUKUK & DANIŞMANLIK</h3>
+                        <p>&copy; 2024 Tüm hakları saklıdır.</p>
+                        <a href="{% url 'law:legal_notice' %}" class="footer-link">Yasal Uyarılar ve Gizlilik Politikası</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Basında Biz</h4>
+                    <div class="news-links">
+                        <a href="#" class="news-link">
+                            <span class="news-date">30 Aralık 2024</span>
+                            <span class="news-title">İş Hukuku Konferansında Keynote Konuşmacı</span>
+                        </a>
+                        <a href="#" class="news-link">
+                            <span class="news-date">25 Aralık 2024</span>
+                            <span class="news-title">Yeni İş Kanunu Değerlendirmesi</span>
+                        </a>
+                        <a href="#" class="news-link">
+                            <span class="news-date">20 Aralık 2024</span>
+                            <span class="news-title">Hukuk Teknolojileri Paneli</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 

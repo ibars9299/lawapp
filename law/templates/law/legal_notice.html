@@ -1,0 +1,60 @@
+{% extends 'law/base.html' %}
+
+{% block title %}Yasal Uyarılar - Öztaylan Hukuk Bürosu{% endblock %}
+
+{% block content %}
+<section class="legal-hero">
+    <div class="legal-hero-content">
+        <h1>Yasal Uyarılar</h1>
+        <p>Gizlilik Politikası ve Yasal Bilgilendirme</p>
+    </div>
+</section>
+
+<section class="legal-content">
+    <div class="container">
+        <div class="legal-grid">
+            <div class="legal-section">
+                <h2>Gizlilik Politikası</h2>
+                <div class="legal-text">
+                    <h3>1. Müvekkil Bilgilerinin Korunması</h3>
+                    <p>Müvekkillerimize ait tüm bilgiler, avukatlık meslek kuralları ve KVKK kapsamında gizli tutulmaktadır. 
+                    Bilgileriniz hiçbir şekilde üçüncü şahıslarla paylaşılmamaktadır.</p>
+
+                    <h3>2. Veri Güvenliği</h3>
+                    <p>Tüm veriler şifreli sistemlerde saklanmakta ve düzenli olarak yedeklenmektedir. 
+                    Sadece yetkili personelin erişimine açıktır.</p>
+
+                    <h3>3. İletişim Gizliliği</h3>
+                    <p>Telefon görüşmeleri, e-postalar ve diğer tüm iletişim kayıtları gizlilik 
+                    ilkelerimiz doğrultusunda korunmaktadır.</p>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h2>Yasal Uyarılar</h2>
+                <div class="legal-text">
+                    <h3>1. Hukuki Sorumluluk</h3>
+                    <p>Web sitemizdeki bilgiler genel bilgilendirme amaçlıdır ve hukuki tavsiye 
+                    niteliği taşımamaktadır. Her hukuki durum kendi özelinde değerlendirilmelidir.</p>
+
+                    <h3>2. Telif Hakları</h3>
+                    <p>Site içeriğindeki tüm materyaller telif hakkı ile korunmaktadır. 
+                    İzinsiz kullanımı yasaktır.</p>
+
+                    <h3>3. Yetki ve Sorumluluk</h3>
+                    <p>Hukuki hizmetler yalnızca resmi vekalet ilişkisi kurulduktan sonra başlar. 
+                    Web sitesi üzerinden verilen bilgiler bağlayıcı değildir.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="legal-contact">
+            <div class="contact-box">
+                <h3>Daha Fazla Bilgi İçin</h3>
+                <p>Gizlilik politikamız ve yasal uyarılarımız hakkında detaylı bilgi almak için bizimle iletişime geçebilirsiniz.</p>
+                <a href="{% url 'law:contact' %}" class="contact-btn">İletişime Geçin</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

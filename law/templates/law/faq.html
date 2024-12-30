@@ -1,0 +1,99 @@
+{% extends 'law/base.html' %}
+
+{% block title %}Sıkça Sorulan Sorular - Öztaylan Hukuk Bürosu{% endblock %}
+
+{% block content %}
+<section class="hero-section faq-hero">
+    <div class="hero-content">
+        <h1>Sıkça Sorulan Sorular</h1>
+        <p>Hukuki süreçler hakkında merak ettiğiniz soruların yanıtları</p>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="faq-search">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Soru ara..." id="faqSearch">
+    </div>
+
+    <div class="faq-categories">
+        <div class="faq-category">
+            <h2 class="category-title">Genel Sorular</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Avukatlık ücretleri nasıl belirlenir?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Avukatlık ücretleri, davanın türü, karmaşıklığı ve süresine göre belirlenir. Ücretler, Türkiye Barolar Birliği'nin belirlediği asgari ücret tarifesinin altında olmamak kaydıyla, yapılacak iş ve hizmetin kapsamına göre karşılıklı anlaşma ile belirlenir.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>İlk görüşme ücretli midir?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>İlk tanışma ve ön değerlendirme görüşmemiz ücretsizdir. Bu görüşmede hukuki sorununuzu dinler, izlenecek yol haritasını belirler ve tahmini maliyet bilgisi veririz.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 class="category-title">Dava Süreci</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Dava açmak için hangi belgeler gerekir?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Gerekli belgeler davanın türüne göre değişmekle birlikte, genel olarak:</p>
+                    <ul>
+                        <li>Kimlik fotokopisi</li>
+                        <li>Dava konusuyla ilgili tüm yazışmalar</li>
+                        <li>Delil niteliğindeki belgeler</li>
+                        <li>Varsa tanık bilgileri</li>
+                    </ul>
+                    <p>gerekmektedir. Detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Diğer tüm açık soruları kapat
+        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+            activeItem.classList.remove('active');
+        });
+
+        // Tıklanan soruyu aç/kapat
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Arama fonksiyonu
+document.getElementById('faqSearch').addEventListener('input', function(e) {
+    const searchText = e.target.value.toLowerCase();
+    
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchText) || answer.includes(searchText)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+</script>
+{% endblock %} 
