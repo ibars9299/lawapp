@@ -13,4 +13,5 @@ urlpatterns = [
     path('basari-hikayeleri/', views.success_stories, name='success_stories'),
     path('sikca-sorulan-sorular/', views.faq, name='faq'),
     path('yasal-uyarilar/', views.legal_notice, name='legal_notice'),
+    path('api/contact/', views.contact_api, name='contact_api'), 
 ] 

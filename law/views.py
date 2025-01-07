@@ -1,6 +1,13 @@
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.core.paginator import Paginator
+from rest_framework.response import Response
+
+from api.serializers import ContactSerializer
+from law.forms import ContactsViewModelForm
+from law.models import Contact
+
+from rest_framework.decorators import api_view
 
 # Örnek blog verileri (gerçek uygulamada veritabanından gelecek)
 BLOG_POSTS = [
@@ -253,7 +260,14 @@ def services(request):
     return render(request, 'law/services.html')
 
 def contact(request):
-    return render(request, 'law/contact.html')
+    form = ContactsViewModelForm()
+    if request.method == 'POST':
+        form = ContactsViewModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Form başarıyla gönderildikten sonra aynı sayfaya yönlendir
+            return redirect('law:contact')  # 'contact' URL adını urlpatterns'ten kontrol edin
+    return render(request, 'law/contact.html', {'form': form})
 
 def team(request):
     return render(request, 'law/team.html')
@@ -272,3 +286,19 @@ def faq(request):
 
 def legal_notice(request):
     return render(request, 'law/legal_notice.html')
+
+@api_view(['GET', 'POST'])
+def contact_api(request):
+    if request.method == 'GET':
+        # Tüm veriyi serialize ederek döndür
+        contacts = Contact.objects.all()
+        serializer = ContactSerializer(contacts, many=True)
+        return Response(serializer.data)
+    
+    elif request.method == 'POST':
+        # Gelen veriyi deseralize ederek kaydet
+        serializer = ContactSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
